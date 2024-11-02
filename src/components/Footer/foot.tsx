@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="justify-between items-center gap-12 md:flex">
           <div className="flex-1 max-w-lg">
             <h3 className="text-white text-2xl font-bold">
-              Get our beautiful newsletter straight to your inbox.
+              Get our newsletter straight to your inbox.
             </h3>
           </div>
           <div className="flex-1 mt-6 md:mt-0">
