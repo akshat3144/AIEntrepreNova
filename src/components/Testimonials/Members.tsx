@@ -1,5 +1,4 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BlurFade } from "@/components/ui/BlurFade";
 import {
   Card,
@@ -19,59 +18,59 @@ interface ReviewProps {
 const reviewList: ReviewProps[] = [
   {
     image: "/team/priyanka.webp",
-    name: "Priyanka Toke",
-    userName: "President",
-    comment: `Being in ACM has been the most delightful experience of my entire college journey. In August 2023, I unexpectedly became the content head of MU-ACM. The club, the people, and the work quickly became an integral part of my life. I'm so grateful for the opportunity. I gave my all to the organization and was honored to become president. My tenure in both positions has been a total of two years, but the infinite memories will last a lifetime. Here at MU-ACM, we're not just colleagues; we're a family. We're proud to showcase that feeling of camaraderie in our chapter's culture.`,
+    name: "Priya Verma",
+    userName: "President, EcoCraft Creations",
+    comment: `When I first started EcoCraft Creations, I was filled with doubt. I didn't have much money, no big investors, and very little experience. But I had one thing that kept me going—a strong belief in the power of small steps. Every day, I worked a little more, learned a little more, and improved my skills bit by bit. I focused on listening to my customers, adapting my products, and building relationships within my community. The journey wasn't easy; there were challenges and setbacks, days when I wanted to give up. But each obstacle taught me something valuable.`,
   },
   {
     image: "/team/Damita_Pathak.webp",
-    name: "Damita Pathak",
-    userName: "Vice President",
+    name: "Rahul Singh",
+    userName: "Owner, Fresh Farms",
     comment:
-      "As Vice President, I'm honored to lead MUACM, building upon its legacy and fostering a culture of innovation and collaboration. Together, we'll elevate MUACM to unprecedented heights, nurturing growth, empowerment, and collective excellence.",
+      "The path of an entrepreneur is challenging, but every obstacle teaches you something invaluable. Don’t be afraid of setbacks—they’re just stepping stones to your success.",
   },
 
   {
     image: "/team/anugrah2.webp",
-    name: "Anugrah Sharma",
-    userName: "Operations Head",
+    name: "Sunita Devi",
+    userName: "Co-Founder, Village Style Boutique",
     comment:
-      "As MUACM's Operations Head, I've been dedicated to ensuring our club runs smoothly and efficiently. From managing logistics to coordinating events, I've played a vital role in creating a positive and productive environment for our members.",
+      "Your journey as an entrepreneur will be unique, so don’t compare yourself to others. Focus on building your skills and creating value. Success will follow if you stay committed.",
   },
   {
     image: "/team/Vinayak_oberoi.webp",
-    name: "Vinayak Oberoi",
-    userName: "PR Head",
+    name: "Manoj Patel",
+    userName: "Founder, AgroLink Solutions",
     comment:
-      "As Public Relations and Outreach Head, I've experienced the remarkable unity and dedication of our team. This position has sharpened my leadership skills and helped me grow personally and professionally. I'm proud of what we've achieved together and grateful for the opportunities.",
+      "There’s strength in community. Connect with others, share your experiences, and learn from theirs. Together, we can achieve far more than we could alone.",
   },
   {
     image: "/team/vedant2.webp",
-    name: "Vedant Soni",
-    userName: "Secretary",
+    name: "Meera Kumari",
+    userName: "Owner, Herbal Health Products",
     comment:
-      "As Secretary of the ACM Club, I've collaborated with brilliant peers, organized workshops, and interacted with industry experts. Our club is a launchpad for enthusiasts to develop into skilled professionals. Join us to discover, learn, and grow.",
+      "Learning never stops for an entrepreneur. Embrace every opportunity to learn something new—each skill, no matter how small, brings you closer to your goal.",
   },
   {
     image: "/team/tanya.webp",
-    name: "Tanya Somwanshi",
-    userName: "Treasurer",
+    name: "Arjun Rao",
+    userName: "Treasurerr, FarmTech Innovations",
     comment:
-      "MUACM has been a transformative journey, shaping me from a Technical Executive to Treasurer. The support and camaraderie of my team have been invaluable, and I'm grateful for the experiences and friendships I've gained.",
+      "In business, the real growth happens when you step outside your comfort zone. Be willing to take calculated risks and don’t let fear hold you back.",
   },
   {
     image: "/team/ashwin_parande.webp",
-    name: "Ashwin Parande",
-    userName: "Technical Head",
+    name: "Lakshmi Reddy",
+    userName: "Artisan, Handwoven Traditions",
     comment:
-      "As MUACM's Technical Head, I've been privileged to lead and inspire our team to achieve new heights. Together, we've tackled challenging projects, developed innovative solutions, and fostered a collaborative learning environment.",
+      "The most valuable asset for any entrepreneur is resilience. Success may not come quickly, but if you keep going, you’ll eventually create something truly meaningful.",
   },
   {
     image: "/team/riddhima.webp",
-    name: "Riddhima Kaushal",
-    userName: "Content Head",
+    name: "Suman Yadav",
+    userName: "Co-Owner, Green Roots Nursery",
     comment:
-      "As Content Head, I've witnessed the incredible synergy and dedication of our ACM team. Together, we've fostered a stimulating intellectual environment and built a strong community.",
+      "The journey is just as important as the destination. Enjoy the process of building your business, learning, and growing as an entrepreneur.",
   },
 ];
 
@@ -111,16 +110,9 @@ export const TestimonialSectionMemebers = () => {
                 </CardContent>
 
                 <CardHeader>
-                  <div className="flex flex-row items-center gap-4">
-                    <Avatar>
-                      <AvatarImage src={review.image} alt="radix" />
-                      <AvatarFallback>AN</AvatarFallback>
-                    </Avatar>
-
-                    <div className="flex flex-col">
-                      <CardTitle className="text-lg">{review.name}</CardTitle>
-                      <CardDescription>{review.userName}</CardDescription>
-                    </div>
+                  <div className="flex flex-col">
+                    <CardTitle className="text-lg">{review.name}</CardTitle>
+                    <CardDescription>{review.userName}</CardDescription>
                   </div>
                 </CardHeader>
               </Card>

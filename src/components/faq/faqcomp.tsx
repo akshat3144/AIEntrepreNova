@@ -172,7 +172,7 @@ const FAQ = () => {
               Got a question we didn’t cover? Ask us here! We’ll get back to you
               with advice tailored to help you succeed.
             </p>
-            <a href="/">
+            <a href="https://forms.gle/zGBpUAZRipvMK8Xa6">
               <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
                 Ask Us
               </button>{" "}
