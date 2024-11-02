@@ -62,11 +62,11 @@ const page = () => {
     },
   ];
   return (
-    <div className="text-center pt-[150px] pb-[120px]">
+    <div className="text-center pt-[150px] pb-[120px] pl-[10px] pr-[10px]">
       <BlurFade delay={0.25 * 2} inView>
         <h1 className="text-3xl font-bold">Latest News</h1>
         <h2 className="text-xl">(Updated Every Sunday)</h2>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {news.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}
@@ -90,7 +90,7 @@ const page = () => {
             </button>{" "}
           </a>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {opportunities.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}

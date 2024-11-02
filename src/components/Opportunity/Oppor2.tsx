@@ -11,6 +11,7 @@ interface ThreeDCardProps {
   imageSrc: string;
   link: string;
   buttonText: string;
+  className?: string;
 }
 
 export function ThreeDCardDemo({
@@ -19,6 +20,7 @@ export function ThreeDCardDemo({
   imageSrc,
   link,
   buttonText,
+  className,
 }: ThreeDCardProps) {
   return (
     <CardContainer className="inter-var">

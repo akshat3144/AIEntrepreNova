@@ -35,7 +35,7 @@ const page = () => {
     <div className="text-center pt-[150px] pb-[120px]">
       <BlurFade delay={0.25 * 2} inView>
         <h1 className="text-3xl font-bold">Legal and Regulatory Guidance</h1>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {opportunities.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}

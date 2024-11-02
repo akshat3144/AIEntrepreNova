@@ -38,7 +38,7 @@ const page = () => {
         <h1 className="text-3xl font-bold">
           Government Schemes and Financial Support
         </h1>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {opportunities.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}
