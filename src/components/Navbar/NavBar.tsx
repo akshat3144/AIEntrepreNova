@@ -31,6 +31,13 @@ const NavBar = () => {
             item="Community"
           ></MenuItem>
         </Link>
+        <Link href="/hub">
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item="Opportunity Hub"
+          ></MenuItem>
+        </Link>
         <Link href="/FAQ">
           <MenuItem
             setActive={setActive}
