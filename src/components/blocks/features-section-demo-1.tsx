@@ -3,11 +3,11 @@ import { useId } from "react";
 
 export default function FeaturesSectionDemo() {
   return (
-    <div className="bg-black text-white pb-20">
+    <div className="bg-black text-white pb-20 pt-20 sm:pt-0">
       <div className="max-w-7xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold">Getting Started</h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-15 md:gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-10 max-w-full mx-auto pl-[20px] pr-[20px]">
         {grid.map((feature) => (
           <a
             key={feature.title}
