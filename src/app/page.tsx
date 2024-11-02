@@ -1,9 +1,7 @@
 import React from "react";
 import HeroComp from "@/components/Hero/herocomp";
-import { VortexDemoSecond } from "@/components/Hero/herovortex";
 import FeaturesSectionDemo from "@/components/blocks/features-section-demo-1";
 import { BlurFade } from "@/components/ui/BlurFade";
-import { TestimonialSectionAudience } from "@/components/Testimonials/Audience";
 import A2 from "@/components/Testimonials/A2";
 import LampDemo from "@/components/ui/lamp";
 

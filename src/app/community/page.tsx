@@ -1,4 +1,3 @@
-import { TestimonialSectionAudience } from "@/components/Testimonials/Audience";
 import { TestimonialSectionMemebers } from "@/components/Testimonials/Members";
 import React from "react";
 
