@@ -40,6 +40,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -72,6 +73,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -79,25 +81,34 @@ body {
 
 @keyframes traveling-border {
   0% {
-    clip-path: inset(0 100% 100% 0); /* Start from top */
+    clip-path: inset(0 100% 100% 0);
+    /* Start from top */
   }
+
   25% {
-    clip-path: inset(0 0 100% 0); /* Move to right */
+    clip-path: inset(0 0 100% 0);
+    /* Move to right */
   }
+
   50% {
-    clip-path: inset(0 0 0 100%); /* Move to bottom */
+    clip-path: inset(0 0 0 100%);
+    /* Move to bottom */
   }
+
   75% {
-    clip-path: inset(100% 0 0 0); /* Move to left */
+    clip-path: inset(100% 0 0 0);
+    /* Move to left */
   }
+
   100% {
-    clip-path: inset(0 100% 0 0); /* Complete the loop, back to start */
+    clip-path: inset(0 100% 0 0);
+    /* Complete the loop, back to start */
   }
 }
 
 /* globals.css */
 body {
-  @apply bg-white text-black;
+  @apply bg-black text-white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -115,32 +126,40 @@ body {
   height: 100%;
   border: 2px solid white;
   border-radius: inherit;
-  animation: traveling-border 5s linear infinite; /* Slower and infinite */
+  animation: traveling-border 5s linear infinite;
+  /* Slower and infinite */
   pointer-events: none;
 }
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  width: 12px;
+  /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
+  background: #f1f1f1;
+  /* Background of the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #387cfc; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  background: #387cfc;
+  /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  /* Rounded corners for the scrollbar thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb on hover */
+  background: #555;
+  /* Color of the scrollbar thumb on hover */
 }
 
 /* For Firefox */
 * {
-  scrollbar-width: thin; /* Width of the scrollbar */
-  scrollbar-color: #387cfc #f1f1f1; /* Color of the scrollbar thumb and track */
+  scrollbar-width: thin;
+  /* Width of the scrollbar */
+  scrollbar-color: #387cfc #f1f1f1;
+  /* Color of the scrollbar thumb and track */
 }
 
 .underline {
