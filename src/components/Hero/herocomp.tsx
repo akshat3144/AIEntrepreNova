@@ -4,54 +4,44 @@ import { HeroParallax } from "../ui/hero-parallax";
 const HeroComp = () => {
   const products = [
     {
-      title: "Product 1",
-      link: "/product-1",
-      thumbnail: "/image.png",
+      title: "Business Education and Training",
+      link: "/education",
+      thumbnail: "/hero/edu.png",
     },
     {
-      title: "Product 2",
-      link: "/product-2",
-      thumbnail: "/image.png",
+      title: "Government Schemes and Financial Support",
+      link: "/govt-support",
+      thumbnail: "/hero/Govt.png",
     },
     {
-      title: "Product 3",
-      link: "/product-3",
-      thumbnail: "/image.png",
+      title: "Legal and Regulatory Guidance",
+      link: "/legal",
+      thumbnail: "/hero/legal.png",
     },
     {
-      title: "Product 4",
-      link: "/product-4",
-      thumbnail: "/image.png",
+      title: "Business Education and Training",
+      link: "/education",
+      thumbnail: "/hero/edu.png",
     },
     {
-      title: "Product 1",
-      link: "/product-1",
-      thumbnail: "/image.png",
+      title: "Market Research and Consumer Insights",
+      link: "/research-insights",
+      thumbnail: "/hero/mr.png",
     },
     {
-      title: "Product 2",
-      link: "/product-2",
-      thumbnail: "/image.png",
+      title: "Low-Cost Marketing Platforms",
+      link: "/marketing",
+      thumbnail: "/hero/marketing.png",
     },
     {
-      title: "Product 3",
-      link: "/product-3",
-      thumbnail: "/image.png",
+      title: "Mentorship and Networking Platforms",
+      link: "/networking",
+      thumbnail: "/hero/network.png",
     },
     {
-      title: "Product 4",
-      link: "/product-4",
-      thumbnail: "/image.png",
-    },
-    {
-      title: "Product 4",
-      link: "/product-4",
-      thumbnail: "/image.png",
-    },
-    {
-      title: "Product 4",
-      link: "/product-4",
-      thumbnail: "/image.png",
+      title: "Basic Financial and Accounting Tools",
+      link: "/accounts",
+      thumbnail: "/hero/accounts.png",
     },
   ];
 

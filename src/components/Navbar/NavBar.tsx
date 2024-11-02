@@ -8,7 +8,7 @@ const NavBar = () => {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/4 z-50">
+    <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/4 z-50 rounded-[50px]">
       <Menu setActive={setActive}>
         <Link href="/">
           <MenuItem
@@ -35,7 +35,7 @@ const NavBar = () => {
           <MenuItem
             setActive={setActive}
             active={active}
-            item="FAQ"
+            item="FAQs"
           ></MenuItem>
         </Link>
       </Menu>

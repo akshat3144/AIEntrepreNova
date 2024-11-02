@@ -4,9 +4,9 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="pb-[120px]">
+    <div className="pb-[120px] pt-[30px]">
       <TestimonialSectionMemebers></TestimonialSectionMemebers>
-      <TestimonialSectionAudience></TestimonialSectionAudience>
+      {/* <TestimonialSectionAudience></TestimonialSectionAudience> */}
     </div>
   );
 };

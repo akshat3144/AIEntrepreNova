@@ -29,18 +29,24 @@ const Footer = () => {
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="w-full pl-12 pr-3 py-2 text-gray-500 bg-white outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                  className="w-full pl-12 pr-3 py-2 text-gray-500 bg-white outline-none border focus:border-[#387cfc] shadow-sm rounded-lg"
                 />
               </div>
-              <button className="block w-auto py-3 px-4 font-medium text-sm text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow">
+              <button className="block w-auto py-3 px-4 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
                 Subscribe
               </button>
             </form>
           </div>
         </div>
         <div className="mt-10 py-10 border-t border-gray-700 flex justify-center">
-          <p className="text-gray-300">
-            © 2022 Float UI Inc. All rights reserved.
+          <p className="text-gray-300 text-center">
+            © 2024 AI-EntrepreNova. All rights reserved.<br></br> Made by{" "}
+            <a
+              href="https://www.linkedin.com/in/akshat-gupta-840740285/"
+              className="text-[#387cfc] hover:text-blue-500"
+            >
+              Akshat Gupta
+            </a>
           </p>
         </div>
       </div>

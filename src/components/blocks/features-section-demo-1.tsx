@@ -3,17 +3,15 @@ import { useId } from "react";
 
 export default function FeaturesSectionDemo() {
   return (
-    <div className="py-20 lg:py-40 bg-black text-white">
+    <div className="bg-black text-white pb-20">
       <div className="max-w-7xl mx-auto text-center mb-10">
-        <h2 className="text-3xl font-bold">
-          All you need to Start the Journey . . .
-        </h2>
+        <h2 className="text-3xl font-bold">Getting Started</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-15 md:gap-6 max-w-7xl mx-auto">
         {grid.map((feature) => (
           <a
             key={feature.title}
-            href="#"
+            href={feature.link}
             className="relative bg-gradient-to-b from-neutral-800 to-neutral-900 p-6 rounded-3xl overflow-hidden transform transition-transform hover:scale-105"
           >
             <Grid size={20} />
@@ -32,44 +30,59 @@ export default function FeaturesSectionDemo() {
 
 const grid = [
   {
-    title: "HIPAA and SOC2 Compliant",
+    title:
+      "How to build a Startup? | How to find a Co-founder & Hire Employees?",
     description:
-      "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
+      "Learn the steps to build a startup, find the right co-founder, and hire a strong team to bring your vision to life.",
+    link: "https://www.youtube.com/watch?v=AUdi3xR-OnQ",
   },
   {
-    title: "Automated Social Media Posting",
+    title: "Startup India Learning Program (by Startup India)",
     description:
-      "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
+      "This program by the Government of India offers free learning modules on various aspects of entrepreneurship, including idea validation, funding, marketing, and compliance.",
+    link: "https://www.startupindia.gov.in/",
   },
   {
-    title: "Advanced Analytics",
+    title: "Marketing Essentials",
     description:
-      "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
+      "Inbound marketing is a methodology to attract loyal customers to your business by aligning with your target audience's needs.",
+    link: "https://www.hubspot.com/inbound-marketing",
   },
   {
-    title: "Content Calendar",
+    title: "Startup Stories",
     description:
-      "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
+      "Startup Stories shares inspiring stories of Indian and global entrepreneurs, case studies of successful startups, and insights on building businesses in India.",
+    link: "https://www.youtube.com/@StartupStoriesTV",
   },
   {
-    title: "Audience Targeting",
+    title: "BizTak",
     description:
-      "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
+      "BizTak covers news and updates on Indian startups, business trends, and entrepreneurial journeys. It’s ideal for staying updated on the Indian startup ecosystem.",
+    link: "https://www.youtube.com/c/BizTak",
   },
   {
-    title: "Social Listening",
+    title: "Y Combinator’s Startup School",
     description:
-      "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
+      "A free online program by Y Combinator that provides guidance on starting a company, featuring lessons from successful founders and investors.",
+    link: "https://www.startupschool.org/",
   },
   {
-    title: "Customizable Templates",
+    title: "LinkedIn Learning: Entrepreneurship Foundations",
     description:
-      "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
+      "A course designed to introduce entrepreneurs to startup basics, from ideation to business models, pitching, and understanding venture capital.",
+    link: "https://www.linkedin.com/learning/entrepreneurship-foundations",
   },
   {
-    title: "Collaboration Tools",
+    title: "The Indian Dream",
     description:
-      "Work seamlessly with your team using our collaboration tools, allowing you to assign tasks, share drafts, and provide feedback in real-time.",
+      "This channel features interviews and case studies on unique Indian businesses, giving insights into growth strategies, funding, and sector-specific challenges in India.",
+    link: "https://www.youtube.com/@IndianDreamProject",
+  },
+  {
+    title: "StartupGyaan",
+    description:
+      "This channel focuses on the Indian startup ecosystem, providing news, case studies, and advice on building startups in India, including breakdowns of popular Indian startups.",
+    link: "https://www.youtube.com/c/StartupGyaan",
   },
 ];
 

@@ -4,9 +4,9 @@ import { BlurFade } from "@/components/ui/BlurFade";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 
 interface ReviewProps {
@@ -14,7 +14,6 @@ interface ReviewProps {
   name: string;
   userName: string;
   comment: string;
-  rating: number;
 }
 
 const reviewList: ReviewProps[] = [
@@ -23,7 +22,6 @@ const reviewList: ReviewProps[] = [
     name: "Priyanka Toke",
     userName: "President",
     comment: `Being in ACM has been the most delightful experience of my entire college journey. In August 2023, I unexpectedly became the content head of MU-ACM. The club, the people, and the work quickly became an integral part of my life. I'm so grateful for the opportunity. I gave my all to the organization and was honored to become president. My tenure in both positions has been a total of two years, but the infinite memories will last a lifetime. Here at MU-ACM, we're not just colleagues; we're a family. We're proud to showcase that feeling of camaraderie in our chapter's culture.`,
-    rating: 5.0,
   },
   {
     image: "/team/Damita_Pathak.webp",
@@ -31,7 +29,6 @@ const reviewList: ReviewProps[] = [
     userName: "Vice President",
     comment:
       "As Vice President, I'm honored to lead MUACM, building upon its legacy and fostering a culture of innovation and collaboration. Together, we'll elevate MUACM to unprecedented heights, nurturing growth, empowerment, and collective excellence.",
-    rating: 4.8,
   },
 
   {
@@ -40,7 +37,6 @@ const reviewList: ReviewProps[] = [
     userName: "Operations Head",
     comment:
       "As MUACM's Operations Head, I've been dedicated to ensuring our club runs smoothly and efficiently. From managing logistics to coordinating events, I've played a vital role in creating a positive and productive environment for our members.",
-    rating: 4.9,
   },
   {
     image: "/team/Vinayak_oberoi.webp",
@@ -48,7 +44,6 @@ const reviewList: ReviewProps[] = [
     userName: "PR Head",
     comment:
       "As Public Relations and Outreach Head, I've experienced the remarkable unity and dedication of our team. This position has sharpened my leadership skills and helped me grow personally and professionally. I'm proud of what we've achieved together and grateful for the opportunities.",
-    rating: 5.0,
   },
   {
     image: "/team/vedant2.webp",
@@ -56,7 +51,6 @@ const reviewList: ReviewProps[] = [
     userName: "Secretary",
     comment:
       "As Secretary of the ACM Club, I've collaborated with brilliant peers, organized workshops, and interacted with industry experts. Our club is a launchpad for enthusiasts to develop into skilled professionals. Join us to discover, learn, and grow.",
-    rating: 5.0,
   },
   {
     image: "/team/tanya.webp",
@@ -64,7 +58,6 @@ const reviewList: ReviewProps[] = [
     userName: "Treasurer",
     comment:
       "MUACM has been a transformative journey, shaping me from a Technical Executive to Treasurer. The support and camaraderie of my team have been invaluable, and I'm grateful for the experiences and friendships I've gained.",
-    rating: 5.0,
   },
   {
     image: "/team/ashwin_parande.webp",
@@ -72,7 +65,6 @@ const reviewList: ReviewProps[] = [
     userName: "Technical Head",
     comment:
       "As MUACM's Technical Head, I've been privileged to lead and inspire our team to achieve new heights. Together, we've tackled challenging projects, developed innovative solutions, and fostered a collaborative learning environment.",
-    rating: 5.0,
   },
   {
     image: "/team/riddhima.webp",
@@ -80,7 +72,6 @@ const reviewList: ReviewProps[] = [
     userName: "Content Head",
     comment:
       "As Content Head, I've witnessed the incredible synergy and dedication of our ACM team. Together, we've fostered a stimulating intellectual environment and built a strong community.",
-    rating: 5.0,
   },
 ];
 
@@ -90,8 +81,21 @@ export const TestimonialSectionMemebers = () => {
       <div className="text-center mb-8">
         <BlurFade delay={0.25 * 2} inView>
           <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-            Hear What Other Enterpreneurs Have to Say
+            Share Your Entrepreneurial Journey
           </h2>
+          <h2 className="text-xl md:text-2xl text-center mb-4">
+            Join our vibrant community of rural entrepreneurs. Share your
+            experiences, ask questions, or offer insights to help others grow.
+            Your story could inspire the next successful business in rural
+            India!
+          </h2>
+          <div className="text-center">
+            <a href="https://forms.gle/T2QoWsE9b7Qg7qGL7">
+              <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
+                Share
+              </button>{" "}
+            </a>
+          </div>
         </BlurFade>
       </div>
       <BlurFade delay={0.25 * 3} inView>
@@ -110,7 +114,7 @@ export const TestimonialSectionMemebers = () => {
                   <div className="flex flex-row items-center gap-4">
                     <Avatar>
                       <AvatarImage src={review.image} alt="radix" />
-                      <AvatarFallback>SV</AvatarFallback>
+                      <AvatarFallback>AN</AvatarFallback>
                     </Avatar>
 
                     <div className="flex flex-col">
