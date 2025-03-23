@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         <div className="mt-10 py-10 border-t border-gray-700 flex justify-center">
           <p className="text-gray-300 text-center">
-            © 2024 AI-EntrepreNova. All rights reserved.<br></br> Made by{" "}
+            © 2025 AI-EntrepreNova. All rights reserved.<br></br> Made by{" "}
             <a
               href="https://www.linkedin.com/in/akshat-gupta-840740285/"
               className="text-[#387cfc] hover:text-blue-500"
