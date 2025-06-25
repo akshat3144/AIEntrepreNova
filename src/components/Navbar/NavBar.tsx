@@ -27,9 +27,15 @@ const NavBar = () => {
       label: "Resources",
       subItems: [
         { href: "/education", label: "Business Education and Training" },
-        { href: "/govt-support", label: "Government Schemes and Financial Support" },
+        {
+          href: "/govt-support",
+          label: "Government Schemes and Financial Support",
+        },
         { href: "/legal", label: "Legal and Regulatory Guidance" },
-        { href: "/research-insights", label: "Market Research and Consumer Insights" },
+        {
+          href: "/research-insights",
+          label: "Market Research and Consumer Insights",
+        },
         { href: "/marketing", label: "Low-Cost Marketing Platforms" },
         { href: "/networking", label: "Mentorship and Networking Platforms" },
         { href: "/accounts", label: "Basic Financial and Accounting Tools" },
@@ -50,7 +56,7 @@ const NavBar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/4 z-50 rounded-[50px] hidden md:block">
+      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/5 z-50 rounded-[50px] hidden md:block">
         <Menu setActive={setActive}>
           {menuItems.map((item) => (
             <Link href={item.href} key={item.href}>

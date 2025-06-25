@@ -1,53 +1,114 @@
+import Link from "next/link";
+import { Mail } from "lucide-react";
+
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="pt-10 bg-neutral-900">
+    <footer className="pt-16 bg-gradient-to-b from-neutral-900 to-black">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        <div className="justify-between items-center gap-12 md:flex">
-          <div className="flex-1 max-w-lg">
-            <h3 className="text-white text-2xl font-bold">
-              Get our newsletter straight to your inbox.
-            </h3>
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+          {/* Column 1 - About */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-6">
+              AI-EntrepreNova
+            </h2>
+            <p className="text-gray-400 mb-6">
+              Empowering rural entrepreneurs with AI-driven tools and resources
+              to build successful businesses and transform communities.
+            </p>
           </div>
-          <div className="flex-1 mt-6 md:mt-0">
-            <form className="flex items-center gap-x-3 md:justify-end">
-              <div className="relative">
-                <svg
-                  className="w-6 h-6 text-gray-400 absolute left-3 inset-y-0 my-auto"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
+
+          {/* Column 2 - Quick Links */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-6">Quick Links</h2>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
-                </svg>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tools"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                >
+                  AI Tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/community"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                >
+                  Community
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/FAQ"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/research-insights"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                >
+                  Research
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3 - Newsletter */}
+          <div>
+            <h2 className="text-white text-xl font-bold mb-6">Newsletter</h2>
+            <p className="text-gray-400 mb-4">
+              Subscribe to receive updates on new tools, success stories, and
+              entrepreneurship tips.
+            </p>
+            <form className="space-y-3">
+              <div className="relative">
+                <Mail className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="w-full pl-12 pr-3 py-2 text-gray-500 bg-white outline-none border focus:border-[#387cfc] shadow-sm rounded-lg"
+                  className="w-full pl-11 pr-3 py-3 text-gray-200 bg-gray-800/50 outline-none border border-gray-700 focus:border-blue-500 rounded-lg transition-colors"
                 />
               </div>
-              <button className="block w-auto py-3 px-4 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
+              <button className="w-full py-3 px-4 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px]">
                 Subscribe
               </button>
             </form>
           </div>
         </div>
-        <div className="mt-10 py-10 border-t border-gray-700 flex justify-center">
-          <p className="text-gray-300 text-center">
-            © 2025 AI-EntrepreNova. All rights reserved.<br></br> Made by{" "}
-            <a
-              href="https://www.linkedin.com/in/akshat-gupta-840740285/"
-              className="text-[#387cfc] hover:text-blue-500"
-            >
-              Akshat Gupta
-            </a>
-          </p>
+
+        {/* Footer Divider */}
+        <div className="border-t border-gray-800 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0">
+              © {currentYear} AI-EntrepreNova. All rights reserved.
+            </p>
+            <div className="flex flex-col md:flex-row items-center">
+              <p className="text-gray-400 text-sm mr-1">Made with ❤️ by</p>
+              <a
+                href="https://www.linkedin.com/in/akshat-gupta-840740285/"
+                className="text-blue-500 hover:text-blue-400 text-sm font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Akshat Gupta
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

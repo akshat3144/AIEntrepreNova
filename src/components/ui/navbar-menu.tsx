@@ -70,9 +70,9 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="navbar relative rounded-full border-2 border-white bg-black shadow-input flex justify-center space-x-4 px-4 py-6 text-white w-full sm:w-auto"
+      className="navbar relative rounded-full border-2 border-white bg-black shadow-input flex justify-between space-x-4 px-8 py-6 text-white w-full sm:w-auto"
     >
-      {children}
+      <div className="w-[80%] flex justify-between mx-auto">{children}</div>
     </nav>
   );
 };
@@ -109,7 +109,10 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: React.PropsWithChildren<LinkProps>) => {
+export const HoveredLink = ({
+  children,
+  ...rest
+}: React.PropsWithChildren<LinkProps>) => {
   return (
     <Link
       {...rest}
