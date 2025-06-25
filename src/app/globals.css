@@ -79,27 +79,36 @@ body {
   }
 }
 
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  border-radius: inherit;
+  animation: traveling-border 5s linear infinite;
+  pointer-events: none;
+}
+
 @keyframes traveling-border {
   0% {
     clip-path: inset(0 100% 100% 0);
     /* Start from top */
   }
-
   25% {
     clip-path: inset(0 0 100% 0);
     /* Move to right */
   }
-
   50% {
     clip-path: inset(0 0 0 100%);
     /* Move to bottom */
   }
-
   75% {
     clip-path: inset(100% 0 0 0);
     /* Move to left */
   }
-
   100% {
     clip-path: inset(0 100% 0 0);
     /* Complete the loop, back to start */
@@ -115,20 +124,6 @@ body {
   body {
     @apply bg-black text-white;
   }
-}
-
-.navbar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid white;
-  border-radius: inherit;
-  animation: traveling-border 5s linear infinite;
-  /* Slower and infinite */
-  pointer-events: none;
 }
 
 /* Custom Scrollbar Styles */
@@ -164,4 +159,107 @@ body {
 
 .underline {
   text-decoration: underline;
+}
+
+
+/* Enhanced Border Animation */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::before,
+.animated-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.animated-border::before {
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--border-color, #387cfc) 50%, transparent 50%) 0 0 / 200% 100%;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-slide 3s linear infinite;
+}
+
+.animated-border::after {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--border-color, #387cfc) 0%, 
+    rgba(255, 255, 255, 0.4) 25%, 
+    var(--border-color, #387cfc) 50%, 
+    rgba(255, 255, 255, 0.4) 75%, 
+    var(--border-color, #387cfc) 100%
+  );
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.05);
+  border-radius: inherit;
+  transition: opacity 0.3s ease-in-out;
+  animation: rotate-border 4s linear infinite;
+}
+
+.animated-border:hover::after {
+  opacity: 0.5;
+}
+
+/* Corner Highlights */
+.animated-border .corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--border-color, #387cfc);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.animated-border:hover .corner {
+  opacity: 1;
+}
+
+.animated-border .corner:nth-child(1) { top: -2px; left: -2px; }
+.animated-border .corner:nth-child(2) { top: -2px; right: -2px; }
+.animated-border .corner:nth-child(3) { bottom: -2px; left: -2px; }
+.animated-border .corner:nth-child(4) { bottom: -2px; right: -2px; }
+
+@keyframes border-slide {
+  from { background-position: 0 0; }
+  to { background-position: -200% 0; }
+}
+
+@keyframes rotate-border {
+  0% { transform: scale(1.05) rotate(0deg); }
+  100% { transform: scale(1.05) rotate(360deg); }
+}
+
+/* Breathing Animation Variant */
+.breathing-border {
+  position: relative;
+}
+
+.breathing-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--border-color, #387cfc), rgba(255, 255, 255, 0.6), var(--border-color, #387cfc));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: breathing 3s ease infinite;
+}
+
+@keyframes breathing {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
 }

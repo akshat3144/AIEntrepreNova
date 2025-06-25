@@ -18,17 +18,25 @@ export const MenuItem = ({
   active,
   item,
   children,
+  currentPath,
+  currentTab,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  currentPath?: string;
+  currentTab?: string | null;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white hover:opacity-[0.9] dark:text-white"
+        className={`cursor-pointer text-white hover:opacity-[0.9] dark:text-white relative ${
+          active === item || currentTab === item
+            ? "after:content-[''] after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-white"
+            : ""
+        }`}
       >
         {item}
       </motion.p>
@@ -42,13 +50,10 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
+                layoutId="active"
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
-                <motion.div
-                  layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
-                >
+                <motion.div layout className="w-max h-full p-4">
                   {children}
                 </motion.div>
               </motion.div>
@@ -70,7 +75,8 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="navbar relative rounded-full border-2 border-white bg-black shadow-input flex justify-between space-x-4 px-8 py-6 text-white w-full sm:w-auto"
+      className="breathing-border relative rounded-full border-transparent bg-black shadow-input flex justify-between space-x-4 px-8 py-6 text-white w-full sm:w-auto"
+      style={{ "--border-color": "#ffffff" } as React.CSSProperties}
     >
       <div className="w-[80%] flex justify-between mx-auto">{children}</div>
     </nav>

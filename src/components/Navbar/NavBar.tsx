@@ -1,14 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, MenuItem } from "../ui/navbar-menu";
 import { Menu as MenuIcon, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
-  const [active, setActive] = useState<string | null>(null);
+  const pathname = usePathname();
+  const [activeHover, setActiveHover] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+
+  // Set the active tab based on the current path
+  useEffect(() => {
+    // Find which menu item corresponds to the current path
+    const currentPath = menuItems.find((item) => pathname === item.href);
+    if (currentPath) {
+      setActiveTab(currentPath.label);
+    } else {
+      setActiveTab(null); // Reset if no match
+    }
+  }, [pathname]);
 
   const menuItems = [
     { href: "/", label: "Home" },
@@ -56,14 +70,16 @@ const NavBar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/5 z-50 rounded-[50px] hidden md:block">
-        <Menu setActive={setActive}>
+      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/5 z-50 rounded-[50px] text-lg hidden md:block">
+        <Menu setActive={setActiveHover}>
           {menuItems.map((item) => (
             <Link href={item.href} key={item.href}>
               <MenuItem
-                setActive={setActive}
-                active={active}
+                setActive={setActiveHover}
+                active={activeHover}
                 item={item.label}
+                currentPath={pathname}
+                currentTab={activeTab}
               />
             </Link>
           ))}
@@ -117,7 +133,9 @@ const NavBar = () => {
               <Link
                 href={item.href}
                 key={item.href}
-                className="py-4 text-lg hover:text-gray-300 border-b border-gray-800"
+                className={`py-4 text-lg hover:text-gray-300 border-b border-gray-800 ${
+                  pathname === item.href ? "border-l-2 border-l-white pl-2" : ""
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
