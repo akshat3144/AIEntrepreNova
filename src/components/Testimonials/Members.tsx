@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 interface ReviewProps {
   image: string;
@@ -79,10 +80,10 @@ export const TestimonialSectionMemebers = () => {
     <section id="testimonials" className="container py-24 sm:py-32">
       <div className="text-center mb-8">
         <BlurFade delay={0.25 * 2} inView>
-          <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl text-center font-bold mb-4 text-white">
             Share Your Entrepreneurial Journey
           </h2>
-          <h2 className="text-xl md:text-2xl text-center mb-4">
+          <h2 className="text-xl md:text-2xl text-center mb-4 text-gray-400">
             Join our vibrant community of rural entrepreneurs. Share your
             experiences, ask questions, or offer insights to help others grow.
             Your story could inspire the next successful business in rural
@@ -90,9 +91,9 @@ export const TestimonialSectionMemebers = () => {
           </h2>
           <div className="text-center">
             <a href="https://forms.gle/T2QoWsE9b7Qg7qGL7">
-              <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
+              <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 active:shadow-none rounded-lg shadow-lg shadow-blue-600/20">
                 Share
-              </button>{" "}
+              </button>
             </a>
           </div>
         </BlurFade>
@@ -103,16 +104,20 @@ export const TestimonialSectionMemebers = () => {
             {reviewList?.map((review) => (
               <Card
                 key={review.name}
-                className="bg-white hover:scale-105 transition-all cursor-pointer md:last:col-span-2 lg:last:col-span-1 flex flex-col items-start justify-between first:row-span-2 basis-1/2 dark:bg-card "
+                className="bg-gray-900 border border-gray-800 hover:scale-105 transition-all cursor-pointer md:last:col-span-2 lg:last:col-span-1 flex flex-col items-start justify-between first:row-span-2 basis-1/2 hover:border-blue-700/50 hover:shadow-lg hover:shadow-blue-900/20"
               >
                 <CardContent className="pt-6 pb-0">
-                  {`"${review.comment}"`}
+                  <p className="text-gray-300">{`"${review.comment}"`}</p>
                 </CardContent>
 
                 <CardHeader>
                   <div className="flex flex-col">
-                    <CardTitle className="text-lg">{review.name}</CardTitle>
-                    <CardDescription>{review.userName}</CardDescription>
+                    <CardTitle className="text-lg text-white">
+                      {review.name}
+                    </CardTitle>
+                    <CardDescription className="text-blue-300">
+                      {review.userName}
+                    </CardDescription>
                   </div>
                 </CardHeader>
               </Card>
