@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import { ThreeDCardDemo } from "@/components/Opportunity/Oppor2";
 import { BlurFade } from "@/components/ui/BlurFade";
+import { motion } from "framer-motion";
 
 const page = () => {
   const news = [
@@ -8,7 +11,7 @@ const page = () => {
       id: 1,
       title: "Startup Mahakumbh Event",
       description:
-        "Recently held, this major event highlighted India’s booming startup ecosystem, with Prime Minister Narendra Modi emphasizing India's transition to a job-creating economy. It showcased growth in areas like space tech, where over 50 startups have emerged. PM Modi also noted that Indian women lead over 45% of startups, showcasing increasing diversity in entrepreneurship​",
+        "Recently held, this major event highlighted India's booming startup ecosystem, with Prime Minister Narendra Modi emphasizing India's transition to a job-creating economy. It showcased growth in areas like space tech, where over 50 startups have emerged. PM Modi also noted that Indian women lead over 45% of startups, showcasing increasing diversity in entrepreneurship​",
       imageSrc: "/hub/op/sm.png",
       link: "https://www.hindustantimes.com/india-news/startup-mahakumbh-event-today-live-updates-pm-narendra-modi-address-entrepreneurs-delhi-police-traffic-advisory-101710902765118.html",
       buttonText: "Learn More",
@@ -55,7 +58,7 @@ const page = () => {
       id: 3,
       title: "Townscript - Book Your Spot at Startup Events",
       description:
-        "Townscript is a platform to discover and book tickets for startup events, including pitch sessions, workshops, and mixers. With a focus on user-friendly booking, it’s a go-to for finding paid and free events in your area.",
+        "Townscript is a platform to discover and book tickets for startup events, including pitch sessions, workshops, and mixers. With a focus on user-friendly booking, it's a go-to for finding paid and free events in your area.",
       imageSrc: "/hub/town.png",
       link: "https://www.townscript.com/in/india/startup",
       buttonText: "Learn More",
@@ -64,9 +67,9 @@ const page = () => {
   return (
     <div className="text-center md:pt-[150px] pt-[80px] pb-[120px] pl-[10px] pr-[10px]">
       <BlurFade delay={0.25 * 2} inView>
-        <h1 className="text-3xl font-bold">Latest News</h1>
-        <h2 className="text-xl">(Updated Every Sunday)</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <h1 className="text-3xl font-bold text-white mb-2">Latest News</h1>
+        <h2 className="text-xl text-gray-400 mb-8">(Updated Every Sunday)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {news.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}
@@ -78,19 +81,32 @@ const page = () => {
             />
           ))}
         </div>
-        <h1 className="text-3xl font-bold mt-5">Look for Opportunities Here</h1>
-        <h3 className="text-xl text-center pt-[5px]">
-          Want to share any Opportunity or News with your Fellow Entrepreneurs ?{" "}
-          Feel free to do so here
-        </h3>
-        <div className="text-center">
-          <a href="https://forms.gle/1jhJp8zML8HnaYXr6">
-            <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
-              Share
-            </button>{" "}
-          </a>
+
+        <div className="mt-20 mb-12">
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Look for Opportunities Here
+          </h1>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent rounded-3xl blur-3xl -z-10"></div>
+            <h3 className="text-xl text-center pt-[5px] text-gray-400 max-w-3xl mx-auto">
+              Want to share any Opportunity or News with your Fellow
+              Entrepreneurs? Feel free to do so here
+            </h3>
+            <div className="text-center mt-4">
+              <motion.a
+                href="https://forms.gle/1jhJp8zML8HnaYXr6"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 active:shadow-none rounded-lg shadow-lg shadow-blue-600/20">
+                  Share
+                </button>
+              </motion.a>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {opportunities.map((opportunity) => (
             <ThreeDCardDemo
               key={opportunity.id}

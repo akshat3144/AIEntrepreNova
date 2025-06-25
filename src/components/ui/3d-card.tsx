@@ -175,17 +175,17 @@ export function ThreeDCardDemo({
 }: ThreeDCardProps) {
   return (
     <CardContainer className="inter-var px-4 sm:px-0">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full max-w-[400px] h-[500px] rounded-xl p-6 border">
+      <CardBody className="relative group/card hover:shadow-2xl hover:shadow-blue-500/20 bg-gray-900 border-gray-800 hover:border-blue-700/50 w-full max-w-[400px] h-[500px] rounded-xl p-6 border transition-all duration-300">
         <CardItem
           translateZ={50}
-          className="text-xl font-bold text-neutral-600 dark:text-white line-clamp-1"
+          className="text-xl font-bold text-white line-clamp-1"
         >
           {title}
         </CardItem>
         <CardItem
           as="p"
           translateZ={60}
-          className="text-neutral-500 text-sm mt-3 dark:text-neutral-300 h-[80px] overflow-hidden line-clamp-3"
+          className="text-gray-400 text-sm mt-3 h-[80px] overflow-hidden line-clamp-3"
         >
           {description}
         </CardItem>
@@ -206,14 +206,14 @@ export function ThreeDCardDemo({
             as={Link}
             href={link}
             target="__blank"
-            className="px-3 py-2 rounded-xl text-sm font-normal dark:text-white"
+            className="px-3 py-2 rounded-xl text-sm font-normal text-blue-400 hover:text-blue-300 transition-colors"
           >
             {buttonText} →
           </CardItem>
           <CardItem
             translateZ={20}
             as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-sm font-bold"
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 text-white text-sm font-bold shadow-lg shadow-blue-600/20"
           >
             Sign up
           </CardItem>

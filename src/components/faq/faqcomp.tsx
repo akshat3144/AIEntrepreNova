@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItemProps {
   question: string;
@@ -19,31 +20,63 @@ const FAQItem: React.FC<FAQItemProps> = ({
   return (
     <button
       onClick={onClick}
-      className="w-full text-left mb-6 p-8 bg-card rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+      className="w-full text-left mb-6 p-8 bg-gray-900 border border-gray-800 rounded-xl shadow-lg hover:shadow-xl hover:border-blue-700/50 transition-all duration-200"
     >
       <div className="flex gap-4 items-start justify-between">
         <div className="max-w-md">
           <h6
             className={`text-lg font-semibold mb-0 ${
-              isOpen ? "text-primary" : "text-foreground"
-            }`}
+              isOpen ? "text-blue-400" : "text-white"
+            } transition-colors duration-300`}
           >
             {question}
           </h6>
-          {isOpen && (
-            <p className="mt-4 text-sm text-muted-foreground">{answer}</p>
-          )}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.p
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="mt-4 text-sm text-gray-400 overflow-hidden"
+              >
+                {answer}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
         <span className="flex-shrink-0">
-          {isOpen ? (
-            <div className="w-9 h-9 flex items-center justify-center bg-primary rounded-full">
-              <Minus className="w-5 h-5 text-primary-foreground" />
-            </div>
-          ) : (
-            <div className="w-9 h-9 flex items-center justify-center bg-secondary rounded-full">
-              <Plus className="w-5 h-5 text-primary" />
-            </div>
-          )}
+          <div
+            className={`w-9 h-9 flex items-center justify-center rounded-full transition-all duration-300 ${
+              isOpen
+                ? "bg-gradient-to-r from-blue-600 to-blue-400"
+                : "bg-gray-800"
+            }`}
+          >
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="minus"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Minus className="w-5 h-5 text-white" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="plus"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Plus className="w-5 h-5 text-blue-400" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </span>
       </div>
     </button>
@@ -167,16 +200,21 @@ const FAQ = () => {
             />
           ))}
           {/* New section */}
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center relative">
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent rounded-3xl blur-3xl -z-10"></div>
             <p className="text-white text-xl font-medium">
-              Got a question we didn’t cover? Ask us here! We’ll get back to you
+              Got a question we didn't cover? Ask us here! We'll get back to you
               with advice tailored to help you succeed.
             </p>
-            <a href="https://forms.gle/zGBpUAZRipvMK8Xa6">
-              <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-[#387cfc] hover:bg-blue-500 active:bg-[#387cfc] active:shadow-none rounded-lg shadow">
+            <motion.a
+              href="https://forms.gle/zGBpUAZRipvMK8Xa6"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 active:shadow-none rounded-lg shadow-lg shadow-blue-600/20">
                 Ask Us
-              </button>{" "}
-            </a>
+              </button>
+            </motion.a>
           </div>
         </div>
       </div>

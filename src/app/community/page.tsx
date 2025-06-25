@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card";
 
 const CommunityPage = () => {
   return (
-    <div className="pt-[150px] pb-[120px] min-h-screen bg-black">
+    <div className="pt-[150px] pb-[120px] min-h-screen">
       <div className="max-w-6xl mx-auto px-4">
         <BlurFade delay={0.25} inView>
           <div className="text-center mb-12">
@@ -24,7 +24,7 @@ const CommunityPage = () => {
         </BlurFade>
 
         <BlurFade delay={0.35} inView>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {communityFeatures.map((feature, i) => (
               <FeatureCard key={i} feature={feature} />
             ))}
@@ -48,8 +48,8 @@ const FeatureCard = ({ feature }: { feature: any }) => {
       transition={{ duration: 0.2 }}
       className="flex flex-col h-full"
     >
-      <Card className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 h-full flex flex-col hover:border-blue-700/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-900/10 group-hover:to-blue-900/20 transition-all duration-500" />
+      <Card className="bg-gray-900 border border-gray-800 rounded-xl p-6 h-full flex flex-col hover:border-gray-700 transition-all duration-200 hover:shadow-lg relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent group-hover:from-transparent group-hover:to-black/20 transition-all duration-500"></div>
         <div
           className={`p-3 rounded-lg bg-gradient-to-r ${feature.color} mb-4 w-fit relative z-10`}
         >
