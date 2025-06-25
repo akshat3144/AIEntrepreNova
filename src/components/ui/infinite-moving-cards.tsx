@@ -82,7 +82,7 @@ export const InfiniteMovingCards = ({
           </h2>
           <div className="text-center">
             <motion.a
-              href="https://forms.gle/8DV65PqWPwwxfxaVA"
+              href="/contact?type=feedback"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

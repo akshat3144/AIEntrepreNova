@@ -1,8 +1,49 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Loader2 } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Reset status
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setStatus("success");
+      setMessage(data.success);
+      setEmail(""); // Clear the form
+    } catch (error) {
+      setStatus("error");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Failed to subscribe. Please try again."
+      );
+    }
+  };
 
   return (
     <footer className="pt-16 bg-black border-t border-gray-800">
@@ -86,7 +127,7 @@ const Footer = () => {
               Subscribe to receive updates on new tools, success stories, and
               entrepreneurship tips.
             </p>
-            <form className="space-y-3">
+            <form className="space-y-3" onSubmit={handleNewsletterSubmit}>
               <div className="relative">
                 <Mail className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
@@ -94,11 +135,33 @@ const Footer = () => {
                   required
                   placeholder="Enter your email"
                   className="w-full pl-11 pr-3 py-3 text-gray-200 bg-gray-900 outline-none border border-gray-800 focus:border-blue-500 rounded-lg transition-colors"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === "loading"}
                 />
               </div>
-              <button className="w-full py-3 px-4 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 rounded-lg shadow-lg shadow-blue-600/20 transition-all duration-300 transform hover:translate-y-[-2px]">
-                Subscribe
+              <button
+                type="submit"
+                className="w-full py-3 px-4 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 rounded-lg shadow-lg shadow-blue-600/20 transition-all duration-300 transform hover:translate-y-[-2px] disabled:opacity-70 disabled:cursor-not-allowed"
+                disabled={status === "loading"}
+              >
+                {status === "loading" ? (
+                  <span className="flex items-center justify-center">
+                    <Loader2 className="animate-spin h-4 w-4 mr-2" />
+                    Subscribing...
+                  </span>
+                ) : (
+                  "Subscribe"
+                )}
               </button>
+
+              {/* Status messages */}
+              {status === "success" && (
+                <p className="text-green-400 text-sm">{message}</p>
+              )}
+              {status === "error" && (
+                <p className="text-red-400 text-sm">{message}</p>
+              )}
             </form>
           </div>
         </div>
@@ -109,17 +172,6 @@ const Footer = () => {
             <p className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0">
               © {currentYear} AI-EntrepreNova. All rights reserved.
             </p>
-            <div className="flex flex-col md:flex-row items-center">
-              <p className="text-gray-400 text-sm mr-1">Made with ❤️ by</p>
-              <a
-                href="https://www.linkedin.com/in/akshat-gupta-840740285/"
-                className="text-blue-400 hover:text-blue-300 text-sm font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Akshat Gupta
-              </a>
-            </div>
           </div>
         </div>
       </div>
