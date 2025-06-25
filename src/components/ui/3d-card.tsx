@@ -116,7 +116,10 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-} & React.HTMLAttributes<HTMLDivElement> & { href?: string; target?: string }) => {
+} & React.HTMLAttributes<HTMLDivElement> & {
+    href?: string;
+    target?: string;
+  }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
@@ -171,44 +174,46 @@ export function ThreeDCardDemo({
   buttonText,
 }: ThreeDCardProps) {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[20rem] h-auto rounded-xl p-4 border">
+    <CardContainer className="inter-var px-4 sm:px-0">
+      <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full max-w-[400px] h-[500px] rounded-xl p-6 border">
         <CardItem
           translateZ={50}
-          className="text-lg font-bold text-neutral-600 dark:text-white"
+          className="text-xl font-bold text-neutral-600 dark:text-white line-clamp-1"
         >
           {title}
         </CardItem>
         <CardItem
           as="p"
           translateZ={60}
-          className="text-neutral-500 text-xs max-w-xs mt-2 dark:text-neutral-300"
+          className="text-neutral-500 text-sm mt-3 dark:text-neutral-300 h-[80px] overflow-hidden line-clamp-3"
         >
           {description}
         </CardItem>
-        <CardItem translateZ={100} className="w-full mt-4">
-          <Image
-            src={imageSrc}
-            height={500}
-            width={500}
-            className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt="thumbnail"
-          />
+        <CardItem translateZ={100} className="w-full mt-5">
+          <div className="h-[250px] w-full overflow-hidden rounded-xl">
+            <Image
+              src={imageSrc}
+              height={700}
+              width={700}
+              className="w-full h-full object-cover rounded-xl group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
+          </div>
         </CardItem>
-        <div className="flex justify-between items-center mt-10">
+        <div className="flex justify-between items-center mt-8">
           <CardItem
             translateZ={20}
             as={Link}
             href={link}
             target="__blank"
-            className="px-2 py-1 rounded-xl text-xs font-normal dark:text-white"
+            className="px-3 py-2 rounded-xl text-sm font-normal dark:text-white"
           >
             {buttonText} →
           </CardItem>
           <CardItem
             translateZ={20}
             as="button"
-            className="px-2 py-1 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-sm font-bold"
           >
             Sign up
           </CardItem>

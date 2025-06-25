@@ -62,7 +62,7 @@ const page = () => {
     },
   ];
   return (
-    <div className="text-center pt-[150px] pb-[120px] pl-[10px] pr-[10px]">
+    <div className="text-center md:pt-[150px] pt-[80px] pb-[120px] pl-[10px] pr-[10px]">
       <BlurFade delay={0.25 * 2} inView>
         <h1 className="text-3xl font-bold">Latest News</h1>
         <h2 className="text-xl">(Updated Every Sunday)</h2>

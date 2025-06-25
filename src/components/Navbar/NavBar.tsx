@@ -70,7 +70,7 @@ const NavBar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-3/5 z-50 rounded-[50px] text-lg hidden md:block">
+      <div className="bg-black text-white fixed top-7 left-1/2 transform -translate-x-1/2 w-1/2 z-50 rounded-[50px] text-lg hidden md:block">
         <Menu setActive={setActiveHover}>
           {menuItems.map((item) => (
             <Link href={item.href} key={item.href}>
