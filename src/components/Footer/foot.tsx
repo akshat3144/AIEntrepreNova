@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-16 bg-gradient-to-b from-neutral-900 to-black">
+    <footer className="pt-16 bg-black border-t border-gray-800">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
@@ -23,48 +23,60 @@ const Footer = () => {
           {/* Column 2 - Quick Links */}
           <div>
             <h2 className="text-white text-xl font-bold mb-6">Quick Links</h2>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/tools"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  AI Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/community"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  Community
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/FAQ"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/research-insights"
-                  className="text-gray-400 hover:text-blue-500 transition-colors"
-                >
-                  Research
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4">
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/tools"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    AI Tools
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/community"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    Community
+                  </Link>
+                </li>
+              </ul>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/FAQ"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/research-insights"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    Research
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Column 3 - Newsletter */}
@@ -81,10 +93,10 @@ const Footer = () => {
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="w-full pl-11 pr-3 py-3 text-gray-200 bg-gray-800/50 outline-none border border-gray-700 focus:border-blue-500 rounded-lg transition-colors"
+                  className="w-full pl-11 pr-3 py-3 text-gray-200 bg-gray-900 outline-none border border-gray-800 focus:border-blue-500 rounded-lg transition-colors"
                 />
               </div>
-              <button className="w-full py-3 px-4 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px]">
+              <button className="w-full py-3 px-4 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 rounded-lg shadow-lg shadow-blue-600/20 transition-all duration-300 transform hover:translate-y-[-2px]">
                 Subscribe
               </button>
             </form>
@@ -101,7 +113,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mr-1">Made with ❤️ by</p>
               <a
                 href="https://www.linkedin.com/in/akshat-gupta-840740285/"
-                className="text-blue-500 hover:text-blue-400 text-sm font-medium"
+                className="text-blue-400 hover:text-blue-300 text-sm font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
               >

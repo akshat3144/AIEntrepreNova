@@ -94,7 +94,7 @@ const page = () => {
             </h3>
             <div className="text-center mt-4">
               <motion.a
-                href="https://forms.gle/1jhJp8zML8HnaYXr6"
+                href="/contact?type=share"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -1,5 +1,6 @@
 import React from "react";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
+import { BlurFade } from "../ui/BlurFade";
 
 const items = [
   {
@@ -10,7 +11,7 @@ const items = [
   },
   {
     quote:
-      "The guidance and resources on AIEntrepreNova have helped me grow my freelance business. It’s a must-have tool for budding entrepreneurs!",
+      "The guidance and resources on AIEntrepreNova have helped me grow my freelance business. It's a must-have tool for budding entrepreneurs!",
     name: "Anil Joshi",
     title: "Freelancer",
   },
@@ -30,8 +31,11 @@ const items = [
 
 const A2 = () => {
   return (
-    <div className="pt-[100px]">
-      <InfiniteMovingCards items={items} />;
+    <div className="pt-[100px] relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent rounded-3xl blur-3xl -z-10"></div>
+      <BlurFade delay={0.25} inView>
+        <InfiniteMovingCards items={items} />
+      </BlurFade>
     </div>
   );
 };

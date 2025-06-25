@@ -8,17 +8,17 @@ export default function FeaturesSectionDemo() {
         <h2 className="text-3xl font-bold">Getting Started</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-10 max-w-full mx-auto pl-[20px] pr-[20px]">
-        {grid.map((feature) => (
+        {grid.map((feature, index) => (
           <a
             key={feature.title}
             href={feature.link}
-            className="relative bg-gradient-to-b from-neutral-800 to-neutral-900 p-6 rounded-3xl overflow-hidden transform transition-transform hover:scale-105"
+            className="relative bg-gray-900 border border-gray-800 p-6 rounded-3xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:border-blue-700/50 hover:shadow-lg hover:shadow-blue-900/20"
           >
-            <Grid size={20} />
+            <Grid size={20} gradientClass={getGradientClass(index)} />
             <p className="text-base font-bold text-white relative z-20">
               {feature.title}
             </p>
-            <p className="text-neutral-400 mt-4 text-base font-normal relative z-20">
+            <p className="text-gray-400 mt-4 text-base font-normal relative z-20">
               {feature.description}
             </p>
           </a>
@@ -27,6 +27,23 @@ export default function FeaturesSectionDemo() {
     </div>
   );
 }
+
+// Function to get different gradient colors for each card
+const getGradientClass = (index: number) => {
+  const gradients = [
+    "from-blue-600/20 to-blue-400/10",
+    "from-purple-600/20 to-purple-400/10",
+    "from-emerald-600/20 to-emerald-400/10",
+    "from-amber-600/20 to-amber-400/10",
+    "from-pink-600/20 to-pink-400/10",
+    "from-indigo-600/20 to-indigo-400/10",
+    "from-red-600/20 to-red-400/10",
+    "from-cyan-600/20 to-cyan-400/10",
+    "from-violet-600/20 to-violet-400/10",
+  ];
+
+  return gradients[index % gradients.length];
+};
 
 const grid = [
   {
@@ -57,11 +74,11 @@ const grid = [
   {
     title: "BizTak",
     description:
-      "BizTak covers news and updates on Indian startups, business trends, and entrepreneurial journeys. It’s ideal for staying updated on the Indian startup ecosystem.",
+      "BizTak covers news and updates on Indian startups, business trends, and entrepreneurial journeys. It's ideal for staying updated on the Indian startup ecosystem.",
     link: "https://www.youtube.com/c/BizTak",
   },
   {
-    title: "Y Combinator’s Startup School",
+    title: "Y Combinator's Startup School",
     description:
       "A free online program by Y Combinator that provides guidance on starting a company, featuring lessons from successful founders and investors.",
     link: "https://www.startupschool.org/",
@@ -89,9 +106,11 @@ const grid = [
 export const Grid = ({
   pattern,
   size,
+  gradientClass,
 }: {
   pattern?: number[][];
   size?: number;
+  gradientClass?: string;
 }) => {
   const p: [number, number][] = (pattern as [number, number][]) ?? [
     [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
@@ -102,7 +121,11 @@ export const Grid = ({
   ];
   return (
     <div className="pointer-events-none absolute left-1/2 top-0 -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
-      <div className="absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] from-zinc-800/30 to-zinc-900/30 opacity-100">
+      <div
+        className={`absolute inset-0 bg-gradient-to-r ${
+          gradientClass || "from-blue-600/20 to-blue-400/10"
+        } [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] opacity-100`}
+      >
         <GridPattern
           width={size ?? 20}
           height={size ?? 20}
@@ -124,7 +147,14 @@ interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
   squares?: [number, number][];
 }
 
-export function GridPattern({ width, height, x, y, squares, ...props }: GridPatternProps) {
+export function GridPattern({
+  width,
+  height,
+  x,
+  y,
+  squares,
+  ...props
+}: GridPatternProps) {
   const patternId = useId();
 
   return (

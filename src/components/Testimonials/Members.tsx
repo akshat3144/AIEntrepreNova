@@ -80,17 +80,17 @@ export const TestimonialSectionMemebers = () => {
     <section id="testimonials" className="container py-24 sm:py-32">
       <div className="text-center mb-8">
         <BlurFade delay={0.25 * 2} inView>
-          <h2 className="text-3xl md:text-4xl text-center font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-5xl text-center font-bold text-white mb-4">
             Share Your Entrepreneurial Journey
           </h2>
-          <h2 className="text-xl md:text-2xl text-center mb-4 text-gray-400">
+          <h2 className="text-gray-400 max-w-2xl mx-auto text-lg">
             Join our vibrant community of rural entrepreneurs. Share your
             experiences, ask questions, or offer insights to help others grow.
             Your story could inspire the next successful business in rural
             India!
           </h2>
           <div className="text-center">
-            <a href="https://forms.gle/T2QoWsE9b7Qg7qGL7">
+            <a href="/contact?type=community">
               <button className="mt-4 py-3 px-6 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 active:shadow-none rounded-lg shadow-lg shadow-blue-600/20">
                 Share
               </button>

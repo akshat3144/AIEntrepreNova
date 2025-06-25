@@ -207,7 +207,7 @@ const FAQ = () => {
               with advice tailored to help you succeed.
             </p>
             <motion.a
-              href="https://forms.gle/zGBpUAZRipvMK8Xa6"
+              href="/contact?type=question"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
