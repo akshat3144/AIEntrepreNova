@@ -43,6 +43,26 @@ const GeminiChat: React.FC<GeminiChatProps> = ({ toolType }) => {
         "Create an analysis of the rural tourism market in my area",
         "Develop a competitor analysis for handcrafted products",
       ],
+      tool6: [
+        "Write a 1-minute elevator pitch for my rural agri-tech business",
+        "Create a compelling written pitch for potential investors in my handmade crafts business",
+        "Generate a business pitch highlighting the unique value proposition of my rural tourism venture",
+      ],
+      tool7: [
+        "Write engaging website copy for my rural farm store",
+        "Create a month's worth of social media posts for my handmade jewelry business",
+        "Generate product descriptions for my local food products website",
+      ],
+      tool8: [
+        "Help me complete a grant application for rural business development",
+        "Create a project description for a sustainable farming grant",
+        "Generate a budget justification for my rural tourism funding application",
+      ],
+      tool9: [
+        "Create an elevator pitch for my rural business at a networking event",
+        "Generate conversation starters for an industry conference",
+        "Write follow-up emails for potential business partners I met at an event",
+      ],
     };
 
     setPlaceholders(

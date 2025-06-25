@@ -14,6 +14,8 @@ import {
   Search,
   BookOpen,
   PenTool,
+  FileCheck,
+  Users,
 } from "lucide-react";
 import { TOOLS_DATA } from "./[slug]/page";
 

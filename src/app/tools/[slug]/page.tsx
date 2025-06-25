@@ -11,6 +11,10 @@ import {
   TrendingUp,
   DollarSign,
   BarChart3,
+  BookOpen,
+  PenTool,
+  FileCheck,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -100,6 +104,74 @@ export const TOOLS_DATA = {
       "Target Market Profiling",
       "Industry Trend Analysis",
       "Consumer Behavior Insights",
+    ],
+  },
+  "business-pitch": {
+    id: "tool6",
+    title: "Business Pitch Writer",
+    description:
+      "Craft compelling business pitches and elevator speeches for investors and partners.",
+    icon: <BookOpen className="h-7 w-7" />,
+    color: "from-teal-600 to-teal-400",
+    longDescription:
+      "Create powerful written pitches that clearly communicate your business value proposition, market opportunity, and growth potential. Perfect for preparing investor meetings or funding applications.",
+    features: [
+      "Elevator Pitch Generation",
+      "Value Proposition Statements",
+      "Business Model Descriptions",
+      "Competitive Advantage Summaries",
+      "Growth Strategy Narratives",
+    ],
+  },
+  "content-creation": {
+    id: "tool7",
+    title: "Content Creator",
+    description:
+      "Generate engaging content for your business website, social media, and promotional materials.",
+    icon: <PenTool className="h-7 w-7" />,
+    color: "from-indigo-600 to-indigo-400",
+    longDescription:
+      "Create compelling content tailored for your rural business across various platforms. From website copy to social media posts, product descriptions, and promotional materials.",
+    features: [
+      "Website Copy Generation",
+      "Social Media Post Creation",
+      "Product Description Writing",
+      "Blog Article Development",
+      "Newsletter Content Drafting",
+    ],
+  },
+  "grant-application": {
+    id: "tool8",
+    title: "Grant Application Assistant",
+    description:
+      "Get help preparing effective grant applications for rural business funding opportunities.",
+    icon: <FileCheck className="h-7 w-7" />,
+    color: "from-orange-600 to-orange-400",
+    longDescription:
+      "Streamline your grant application process with tailored assistance for rural business funding opportunities. Develop compelling proposals, project descriptions, and budget justifications.",
+    features: [
+      "Proposal Writing Templates",
+      "Project Description Frameworks",
+      "Budget Justification Tools",
+      "Impact Statement Generation",
+      "Application Review Assistance",
+    ],
+  },
+  "business-networking": {
+    id: "tool9",
+    title: "Networking Script Generator",
+    description:
+      "Create personalized networking scripts for events, meetings, and cold outreach to grow your business network.",
+    icon: <Users className="h-7 w-7" />,
+    color: "from-pink-600 to-pink-400",
+    longDescription:
+      "Develop effective networking scripts tailored for different situations to help you connect with potential partners, clients, suppliers, and mentors in a confident and professional manner.",
+    features: [
+      "Elevator Pitch Creation",
+      "Industry Event Conversation Starters",
+      "Cold Outreach Message Templates",
+      "Follow-up Communication Scripts",
+      "Partnership Discussion Frameworks",
     ],
   },
 };

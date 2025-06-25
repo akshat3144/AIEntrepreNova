@@ -90,6 +90,50 @@ Ensure the financial plan is realistic and considers the economic conditions of 
 
 Ensure the report is data-driven and relevant to the rural entrepreneurial context.`;
         break;
+      case "tool6":
+        customizedPrompt = `Create a compelling business pitch for a rural business focused on [specific product or service]. The pitch should include:
+- A compelling hook or opening statement
+- Clear value proposition
+- Problem statement and your solution
+- Market opportunity and size
+- Business model and revenue streams
+- Competitive advantage
+- Team highlights
+- Call to action or funding ask
+
+Ensure the pitch is concise, engaging, and tailored to address the specific needs and opportunities of rural entrepreneurship.`;
+        break;
+      case "tool7":
+        customizedPrompt = `Generate engaging content for a rural business focused on [specific product or service]. Based on the request, create content for:
+- Website copy (homepage, about us, product pages)
+- Social media posts (Instagram, Facebook, LinkedIn)
+- Product descriptions
+- Blog articles
+- Newsletters or promotional emails
+
+Ensure the content is authentic, resonates with rural and urban customers, highlights sustainable practices, and emphasizes the unique qualities of rural-made products and services.`;
+        break;
+      case "tool8":
+        customizedPrompt = `Help create a grant application for a rural business seeking funding in [specific area]. Your response should include:
+- Compelling project description
+- Clear objectives and outcomes
+- Budget justification and financial details
+- Implementation timeline
+- Expected impact and benefits to the rural community
+- Evaluation metrics
+
+Ensure the application is persuasive, aligns with typical rural grant requirements, and emphasizes sustainable economic development and community impact.`;
+        break;
+      case "tool9":
+        customizedPrompt = `Create networking scripts for a rural entrepreneur in [specific industry]. Based on the context requested, generate:
+- Elevator pitch for brief introductions
+- Conversation starters for industry events
+- Follow-up email templates
+- LinkedIn connection messages
+- Partnership discussion talking points
+
+Ensure the language is professional, authentic, and tailored to effectively represent rural businesses in various networking contexts.`;
+        break;
       default:
         customizedPrompt = prompt; // Fallback to the original prompt
     }
