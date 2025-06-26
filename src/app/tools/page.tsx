@@ -13,7 +13,7 @@ interface Tool extends ToolData {
 }
 
 // Convert the TOOLS_DATA object to an array for easier mapping
-const TOOLS = Object.entries(TOOLS_DATA).map(([slug, data]) => ({
+const TOOLS = Object.entries(TOOLS_DATA || {}).map(([slug, data]) => ({
   ...data,
   slug,
 })) as Tool[];
@@ -74,20 +74,25 @@ const FeatureBox = ({
 const ToolsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [mounted, setMounted] = useState(false);
+  const [filteredTools, setFilteredTools] = useState(TOOLS);
 
   // Add this useEffect to handle client-side mounting
   useEffect(() => {
     setMounted(true);
-  }, []);
 
-  // Handle filtering tools safely with mounted check
-  const filteredTools = mounted
-    ? TOOLS.filter(
-        (tool) =>
-          tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          tool.description.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : TOOLS;
+    // Only filter when mounted and we have search query
+    if (searchQuery) {
+      setFilteredTools(
+        TOOLS.filter(
+          (tool) =>
+            tool?.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            tool?.description?.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredTools(TOOLS);
+    }
+  }, [searchQuery, mounted]);
 
   return (
     <div className="pt-[150px] pb-[120px]">
@@ -119,15 +124,27 @@ const ToolsPage = () => {
 
         <BlurFade delay={0.35} inView>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTools.map((tool, i) => (
-              <ToolCard key={i} tool={tool} />
-            ))}
-            {mounted && filteredTools.length === 0 && (
-              <div className="col-span-1 md:col-span-2 lg:col-span-3 p-10 text-center">
-                <p className="text-gray-400">
-                  No tools found matching your search.
-                </p>
-              </div>
+            {mounted ? (
+              <>
+                {filteredTools.map((tool, i) => (
+                  <ToolCard key={i} tool={tool} />
+                ))}
+                {filteredTools.length === 0 && (
+                  <div className="col-span-1 md:col-span-2 lg:col-span-3 p-10 text-center">
+                    <p className="text-gray-400">
+                      No tools found matching your search.
+                    </p>
+                  </div>
+                )}
+              </>
+            ) : (
+              // Show skeleton or loading state while not mounted
+              TOOLS.map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-gray-900 border border-gray-800 rounded-xl p-6 h-[200px] animate-pulse"
+                />
+              ))
             )}
           </div>
         </BlurFade>
