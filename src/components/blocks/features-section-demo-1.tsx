@@ -3,7 +3,7 @@ import { useId } from "react";
 
 export default function FeaturesSectionDemo() {
   return (
-    <div className="bg-black text-white pb-20 pt-20 sm:pt-0">
+    <div className="bg-black text-white pb-20 md:pt-20 pt-0">
       <div className="max-w-7xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold">Getting Started</h2>
       </div>
