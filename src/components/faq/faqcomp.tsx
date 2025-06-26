@@ -203,8 +203,8 @@ const FAQ = () => {
           <div className="mt-10 text-center relative">
             <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent rounded-3xl blur-3xl -z-10"></div>
             <p className="text-white text-xl font-medium">
-              Got a question we didn't cover? Ask us here! We'll get back to you
-              with advice tailored to help you succeed.
+              Got a question we didn&apos;t cover? Ask us here! We&apos;ll get
+              back to you with advice tailored to help you succeed.
             </p>
             <motion.a
               href="/contact?type=question"

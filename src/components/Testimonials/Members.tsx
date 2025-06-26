@@ -7,7 +7,6 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { motion } from "framer-motion";
 
 interface ReviewProps {
   image: string;

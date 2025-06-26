@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import ContactForm from "@/components/Contact/ContactForm";
 import { BlurFade } from "@/components/ui/BlurFade";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
-const ContactPage = () => {
+// Component to safely use search params
+function ContactPageContent() {
   const searchParams = useSearchParams();
   const defaultType = searchParams.get("type") || "";
 
@@ -53,7 +54,7 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="pt-[150px] pb-[120px]">
       <BlurFade>
         <div className="max-w-3xl mx-auto mt-24">
           {/* <h1 className="text-4xl font-bold text-center md:mt-24 mb-12">Contact</h1> */}
@@ -72,8 +73,8 @@ const ContactPage = () => {
                   Thank You for Reaching Out!
                 </h2>
                 <p className="text-gray-400 mb-6">
-                  We've received your message and will get back to you as soon
-                  as possible.
+                  We&apos;ve received your message and will get back to you as
+                  soon as possible.
                 </p>
                 <button
                   onClick={() => {
@@ -102,7 +103,18 @@ const ContactPage = () => {
           </div>
         </div>
       </BlurFade>
-    </main>
+    </div>
+  );
+}
+
+// Main component with suspense boundary
+const ContactPage = () => {
+  return (
+    <Suspense
+      fallback={<div className="pt-[150px] pb-[120px]">Loading...</div>}
+    >
+      <ContactPageContent />
+    </Suspense>
   );
 };
 

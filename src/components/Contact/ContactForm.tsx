@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FormEvent, Dispatch, SetStateAction } from "react";
 import {
   Send,
-  ArrowRight,
   MessageSquare,
   HelpCircle,
   Share2,
@@ -28,7 +27,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
   handleChange,
   handleSubmit,
   isSubmitting,
-  setIsSubmitted,
 }) => {
   const topicOptions = [
     {

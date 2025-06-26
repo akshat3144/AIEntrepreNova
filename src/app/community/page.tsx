@@ -7,6 +7,14 @@ import { motion } from "framer-motion";
 import { Users, MessageSquare, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
+// Define interface for community feature
+interface CommunityFeature {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+}
+
 const CommunityPage = () => {
   return (
     <div className="pt-[150px] pb-[120px] min-h-screen">
@@ -41,7 +49,7 @@ const CommunityPage = () => {
   );
 };
 
-const FeatureCard = ({ feature }: { feature: any }) => {
+const FeatureCard = ({ feature }: { feature: CommunityFeature }) => {
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -66,7 +74,7 @@ const FeatureCard = ({ feature }: { feature: any }) => {
   );
 };
 
-const communityFeatures = [
+const communityFeatures: CommunityFeature[] = [
   {
     title: "Connect with Peers",
     description:

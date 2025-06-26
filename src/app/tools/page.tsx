@@ -1,31 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BlurFade } from "@/components/ui/BlurFade";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  FileText,
-  Mail,
-  TrendingUp,
-  DollarSign,
-  BarChart3,
-  ChevronRight,
-  Search,
-  BookOpen,
-  PenTool,
-  FileCheck,
-  Users,
-} from "lucide-react";
-import { TOOLS_DATA } from "./[slug]/page";
+import { ChevronRight, Search, BookOpen, PenTool } from "lucide-react";
+import { TOOLS_DATA, ToolData } from "./toolsData";
+
+// Define interface for tool data
+interface Tool extends ToolData {
+  slug: string;
+}
 
 // Convert the TOOLS_DATA object to an array for easier mapping
 const TOOLS = Object.entries(TOOLS_DATA).map(([slug, data]) => ({
   ...data,
   slug,
-}));
+})) as Tool[];
 
-const ToolCard = ({ tool }: { tool: any }) => {
+const ToolCard = ({ tool }: { tool: Tool }) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
@@ -80,13 +73,21 @@ const FeatureBox = ({
 
 const ToolsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [mounted, setMounted] = useState(false);
 
-  // Filter tools based on search query
-  const filteredTools = TOOLS.filter(
-    (tool) =>
-      tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Add this useEffect to handle client-side mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Handle filtering tools safely with mounted check
+  const filteredTools = mounted
+    ? TOOLS.filter(
+        (tool) =>
+          tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          tool.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : TOOLS;
 
   return (
     <div className="pt-[150px] pb-[120px]">
@@ -121,10 +122,10 @@ const ToolsPage = () => {
             {filteredTools.map((tool, i) => (
               <ToolCard key={i} tool={tool} />
             ))}
-            {filteredTools.length === 0 && (
+            {mounted && filteredTools.length === 0 && (
               <div className="col-span-1 md:col-span-2 lg:col-span-3 p-10 text-center">
                 <p className="text-gray-400">
-                  No tools match your search. Try a different keyword.
+                  No tools found matching your search.
                 </p>
               </div>
             )}

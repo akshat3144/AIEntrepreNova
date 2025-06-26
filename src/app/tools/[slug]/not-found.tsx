@@ -12,7 +12,8 @@ export default function ToolNotFound() {
             Tool Not Found
           </h1>
           <p className="text-gray-400 max-w-md mx-auto mb-8">
-            The tool you're looking for doesn't exist or may have been moved.
+            The tool you&apos;re looking for doesn&apos;t exist or may have been
+            moved.
           </p>
           <Link
             href="/tools"

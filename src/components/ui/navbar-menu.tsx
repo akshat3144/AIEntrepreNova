@@ -18,7 +18,6 @@ export const MenuItem = ({
   active,
   item,
   children,
-  currentPath,
   currentTab,
 }: {
   setActive: (item: string) => void;
