@@ -104,17 +104,29 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+     <h1 className="text-2xl md:text-7xl font-bold text-white">
         AIEntrepreNova
       </h1>
-      <h2 className="text-xl md:text-3xl font-bold dark:text-white">
+      <h2 className="text-xl md:text-3xl font-bold text-blue-400">
         Empowering Rural Dreams into Digital Reality
       </h2>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base md:text-xl mt-6 text-gray-400">
         Transform your business vision into reality with your AI-powered
         companion. Access expert guidance, connect with mentors, and grow your
         business, all in your preferred language.
       </p>
+      <div className="mt-6 relative z-50">
+        <Link href="/tools" className="inline-block transform-gpu">
+          <motion.button
+            className="py-3 px-6 font-medium text-sm text-center text-white bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 active:shadow-none rounded-lg shadow-lg shadow-blue-600/20 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            Explore Tools
+          </motion.button>
+        </Link>
+      </div>
     </div>
   );
 };
