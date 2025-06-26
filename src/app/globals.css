@@ -128,33 +128,27 @@ body {
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 12px;
-  /* Width of the scrollbar */
+  width: 8px; /* Smaller width for a more modern look */
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  /* Background of the scrollbar track */
+  background: #111111; /* Dark track to match the black background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #387cfc;
-  /* Color of the scrollbar thumb */
-  border-radius: 10px;
-  /* Rounded corners for the scrollbar thumb */
+  background: linear-gradient(to bottom, #4f6ef7, #2563eb); /* Blue gradient to match tools page */
+  border-radius: 4px; /* Smaller radius for modern look */
+  border: 2px solid #111111; /* Create padding effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
-  /* Color of the scrollbar thumb on hover */
+  background: linear-gradient(to bottom, #3b5bdc, #1d4ed8); /* Slightly darker on hover */
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  /* Width of the scrollbar */
-  scrollbar-color: #387cfc #f1f1f1;
-  /* Color of the scrollbar thumb and track */
+  scrollbar-color: #2563eb #111111; /* Blue thumb and dark track */
 }
 
 .underline {
